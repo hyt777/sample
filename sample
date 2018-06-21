@@ -1,0 +1,24 @@
+program ex
+IMPLICIT NONE
+
+INTEGER :: I,J
+double precision, DIMENSION (300,300) :: KUKU
+open(100,file='data.dat',status='replace')
+write(100,'(a26)') 'mult function'
+
+DO I=1,300
+	DO J=1,300
+		KUKU(j,i)=cos(0.1*dble(i))*cos(0.1*dble(j))*i
+		if(j<=299) then
+			WRITE(100,'(f10.5)',advance='no') KUKU(j,i)
+		else 
+			WRITE(100,'(f10.5)') KUKU(j,i)
+		end if
+	END DO
+END DO
+
+
+ 
+
+STOP
+end program ex
